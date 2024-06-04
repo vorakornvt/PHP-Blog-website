@@ -13,9 +13,9 @@
   </main> -->
   
   <!-- Hero -->
-  <div class="container-fluid">
+  <div class="container-fluid hero">
 
-  <div class="col container">
+  <div class="col container mt-5 mx-auto text-center h-650">
     <h1>Art Supplies for Everyone</h1>
     <h2>Artists, hobbyists, students, and anyone who loves to express themselves creatively.</h2>
     <a href="signup.php"><button type="button" class="btn btn-dark">Get started</button></a>

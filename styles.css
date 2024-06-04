@@ -4,7 +4,7 @@
     --complementary: #111827;
     --highlight: #556b57;
     --brand: #84edac;
-    --primaryfont:  "Roboto", serif;
+    --primaryfont:  "Prata", serif;
     --secondaryfont: "Roboto", serif;
 }
 
@@ -14,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-#h1{
-    font-family: var(--primaryfont);
-    font-size: 10px;
+.hero{
+    height: 650px;
 }
+
