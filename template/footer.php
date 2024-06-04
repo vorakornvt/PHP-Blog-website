@@ -1,4 +1,4 @@
-  <div class="footer text-center">
+  <div class="footer text-center border-top">
     <!-- Flaticon Attribution -->
     <small class="text-muted d-block my-3">Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="http://www.flaticon.com/" target="_blank" rel="noopener noreferrer">www.flaticon.com</a></small>
     <!-- Bootstrap Script Bundle -->

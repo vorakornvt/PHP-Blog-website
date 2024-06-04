@@ -27,8 +27,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
- <ul class="nav justify-content-center">
+    <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
+ <ul class="nav">
       <li class="nav-item">
         <a class="nav-link active link-dark " href="index.php">Home</a>
       </li>
@@ -36,7 +36,7 @@
         <a class="nav-link link-dark " href="posts.php">Posts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active link-dark " href="signup.php">Get started</a>
+        <a class="nav-link active link-dark " href="/dwd/Assessment2PHP/signup.php">Get started</a>
       </li>
       <li class="nav-item">
         <!-- Button trigger modal -->
@@ -46,5 +46,46 @@
       </li>
     </ul>
     </div>
+    </nav>
+<!-- Header: END -->
 
-</nav>
+  <!-- Login Modal: START -->
+  <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+
+        <!-- login.inc.php - Will process the data from this form-->
+        <div class="modal-body">
+          <!-- LOGIN FORM: START -->
+          <form action="includes/login.inc.php" method="POST">
+            <div class="mb-3">
+              <label for="email" class="col-form-label">Email address:</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="mailuid" placeholder="Email Address">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="col-form-label">Password:</label>
+              <input type="password" class="form-control" id="password" name="pwd" placeholder="Password"></input>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary w-100" name="login-submit">Login</button>
+            </div>
+          </form>
+          <!-- LOGIN FORM: END -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Login Modal: END -->
+
+  <!-- Error Message from GET: START -->
+  <section class="container mt-3">
+
+  </section>  
+  <!-- Error Message from GET: END -->
+

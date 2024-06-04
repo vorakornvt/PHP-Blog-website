@@ -15,10 +15,10 @@
   <!-- Hero -->
   <div class="container-fluid hero">
 
-  <div class="col container mt-5 mx-auto text-center h-650">
-    <h1 id="h1">Art Supplies for Everyone</h1>
-    <h2>Artists, hobbyists, students, and anyone who loves to express themselves creatively.</h2>
-    <a href="signup.php"><button type="button" class="btn btn-dark">Get started</button></a>
+  <div class="col container mt-5 mx-auto text-center mt-5">
+    <h1 class="mb-5">Art Supplies for Everyone</h1>
+    <h2 class="mb-5">Creative space Artists, hobbyists, students, and anyone who loves to express themselves creatively.</h2>
+    <a  class="mt-5  align-items-end" href="/dwd/Assessment2PHP/signup.php"><button type="button" class="btn btn-dark">Get started</button></a>
   </div>
 
   </div>

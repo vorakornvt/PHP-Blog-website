@@ -1,6 +1,6 @@
 <!-- HEADER.PHP -->
 <?php 
-  require "templates/header.php"
+  require "./template/header.php"
 ?>
 
 <main class="container p-4 bg-light mt-3">
@@ -39,5 +39,5 @@
 
 <!-- FOOTER.PHP -->
 <?php 
-  require "templates/footer.php"
+  require "./template/footer.php"
 ?>
