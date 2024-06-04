@@ -7,38 +7,44 @@
   <!-- Bootstrap 5.0 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <!-- External CSS -->
-  <link rel="stylesheet" href="./styles.css">
-  <title>TemplateCMS</title>
+  <link rel="stylesheet" href="./style.css">
+  <title>ARTIFY</title>
+<!-- Font Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
 </head>
 <body class="d-flex flex-column h-100">
   
 <!-- Header: START -->
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
   <div class="container-fluid">
   
    
   <a class="navbar-brand" href="#">
-      <img src="./img/ARTIFY_LOGO.png" alt="Bootstrap" width="100">
+      <img src="./img/Asset4.png" alt="ArtifyLOGO" width="130">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
  <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" href="index.php">Home</a>
+        <a class="nav-link active link-dark " href="index.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="posts.php">Posts</a>
+        <a class="nav-link link-dark " href="posts.php">Posts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="signup.php">Signup</a>
+        <a class="nav-link active link-dark " href="signup.php">Get started</a>
       </li>
       <li class="nav-item">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login-modal">
+        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#login-modal">
           Login
         </button>
       </li>
@@ -46,45 +52,3 @@
     </div>
 
 </nav>
- 
-  <!-- Header: END -->
-
-  <!-- Login Modal: START -->
-  <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          </button>
-        </div>
-
-        <!-- login.inc.php - Will process the data from this form-->
-        <div class="modal-body">
-          <!-- LOGIN FORM: START -->
-          <form action="includes/login.inc.php" method="POST">
-            <div class="mb-3">
-              <label for="email" class="col-form-label">Email address:</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="mailuid" placeholder="Email Address">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="mb-3">
-              <label for="password" class="col-form-label">Password:</label>
-              <input type="password" class="form-control" id="password" name="pwd" placeholder="Password"></input>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary w-100" name="login-submit">Login</button>
-            </div>
-          </form>
-          <!-- LOGIN FORM: END -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Login Modal: END -->
-
-  <!-- Error Message from GET: START -->
-  <section class="container mt-3">
-
-  </section>  
-  <!-- Error Message from GET: END -->
