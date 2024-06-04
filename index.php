@@ -1,16 +1,24 @@
 <!-- HEADER.PHP -->
 <?php 
-  require "./template/header.php"
+  require "./templates/header.php"
 ?>
 
-  <!-- <main class="container mt-3">
-    <div class="alert alert-success" role="alert">You are logged in!</div>
-    <div class="alert alert-warning" role="alert">You are not logged in</div>
-
-    <section class="container mt-3 p-4 bg-light">
-      Welcome to Template<b>CMS</b> home page
+<main class="container custom-container mt-3">
+    <?php
+      if(isset($_SESSION['userId'])){
+        // logged in
+        echo '<div class="alert alert-info" role="alert">
+          Welcome <span style="text-transform: uppercase; font-weight: bold">' . $_SESSION['userUid'] .
+        '</span></div>';
+      } else {
+        // logged out
+        echo '<div class="alert alert-warning" role="alert">You are not logged in</div>';
+      }
+    ?>
+    <section class="container p-4 bg-light mt-3">
+      Welcome to Rocket<b>Posts</b> home page
     </section>
-  </main> -->
+  </main>
   
   <!-- Hero -->
   <div class="container-fluid hero">
@@ -26,5 +34,5 @@
 
 <!-- FOOTER.PHP -->
 <?php 
-  require "./template/footer.php"
+  require "./templates/footer.php"
 ?>
