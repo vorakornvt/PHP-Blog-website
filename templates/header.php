@@ -106,7 +106,11 @@
 
       } else if(isset($_GET['login']) && $_GET['login'] == "success"){
 
-        echo '<div class="alert alert-success" role="alert">You have successfully logged in!</div>';
+    
+          echo '<div class="alert alert-info" role="alert">
+            Welcome <span style="text-transform: uppercase; font-weight: bold">' . $_SESSION['userUid'] .
+          '</span></div>';
+  
       }
     ?>
   </div>

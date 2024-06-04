@@ -1,4 +1,6 @@
 <?php 
+session_start(); // Start the session
+
 if(isset($_POST['login-submit'])){
     // Connect to DB
     require './connect.inc.php';
@@ -48,7 +50,6 @@ if(isset($_POST['login-submit'])){
 
         // b. Successful authentication: User is logged in
         else {
-            session_start();
             $_SESSION['userId'] = $row['idUsers'];  // User ID
             $_SESSION['userUid'] = $row['uidUsers'];  // Username
 
@@ -67,3 +68,4 @@ if(isset($_POST['login-submit'])){
     exit();
 }
 ?>
+
