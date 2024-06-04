@@ -104,7 +104,8 @@
         echo '<div class="alert alert-danger" role="alert">'.$errorMsg.'</div>';
 
 
-      } else if(isset($_GET['login']) == "success"){
+      } else if(isset($_GET['login']) && $_GET['login'] == "success"){
+
         echo '<div class="alert alert-success" role="alert">You have successfully logged in!</div>';
       }
     ?>
