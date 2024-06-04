@@ -6,12 +6,11 @@
     --brand: #6366f1;
 }
 
-/* GENERAL CSS */
-/* body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-} */
+.navbarNav{
+    flex-direction: row-reverse;
+}
+
+
 h1 {
     margin-top: -1rem;
     font-weight: lighter;

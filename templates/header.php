@@ -11,14 +11,22 @@
   <title>TemplateCMS</title>
 </head>
 <body class="d-flex flex-column h-100">
-  <!-- Header: START -->
-  <header class="container">
-    <div id="logo" class="text-center">
-      <img src="./img/template.png" alt="template">
-      <h1>Template<span>CMS<span></h1>
-    </div>
+  
+<!-- Header: START -->
 
-    <ul class="nav justify-content-center">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+  
+   
+  <a class="navbar-brand" href="#">
+      <img src="./img/ARTIFY_LOGO.png" alt="Bootstrap" width="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+ <ul class="nav justify-content-center">
       <li class="nav-item">
         <a class="nav-link active" href="index.php">Home</a>
       </li>
@@ -35,7 +43,10 @@
         </button>
       </li>
     </ul>
-  </header>
+    </div>
+
+</nav>
+ 
   <!-- Header: END -->
 
   <!-- Login Modal: START -->
