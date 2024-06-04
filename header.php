@@ -12,7 +12,7 @@
   <title>ARTIFY</title>
   
 </head>
-<body class="d-flex flex-column h-300">
+<body class="d-flex flex-column">
   
 <!-- Header: START -->
 
