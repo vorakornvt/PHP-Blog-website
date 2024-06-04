@@ -1,6 +1,6 @@
 <!-- HEADER.PHP -->
 <?php 
-  require "./header.php"
+  require "./template/header.php"
 ?>
 
   <!-- <main class="container mt-3">
@@ -26,5 +26,5 @@
 
 <!-- FOOTER.PHP -->
 <?php 
-  require "./footer.php"
+  require "./template/footer.php"
 ?>
