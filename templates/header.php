@@ -1,6 +1,5 @@
-<!-- START NEW SESSION -->
 <?php
-  session_start();
+session_start(); // Start the session
 ?>
 
 <!DOCTYPE html>
@@ -15,41 +14,55 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="/dwd/Assessment2PHP/styles.css">
   <title>ARTIFY</title>
-  
 </head>
 <body class="d-flex flex-column">
-  
-<!-- Header: START -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="./img/Asset5.png" alt="ArtifyLOGO" width="130">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link active link-dark" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link-dark" href="posts.php">Posts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active link-dark" href="/dwd/Assessment2PHP/signup.php">Get started</a>
-          </li>
-          <li class="nav-item">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#login-modal">
-              Login
-            </button>
-          </li>
-        </ul>
-      </div>
+<!-- Header: START -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+  <div class="container-fluid w-75">
+    <a class="navbar-brand" href="#">
+      <img src="./img/Asset5.png" alt="ArtifyLOGO" width="130">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active link-dark" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-dark" href="posts.php">Posts</a>
+        </li>
+        <?php
+        if(isset($_SESSION['userId'])){
+          // User is logged in
+          echo '<li class="nav-item">
+                  <a class="nav-link active link-dark" href="/dwd/Assessment2PHP/create_post.php">Create Post</a>
+                </li>
+                <li class="nav-item">
+                  <form action="/dwd/Assessment2PHP/includes/logout.inc.php" method="POST">
+                    <button type="submit" class="btn btn-outline-dark" name="logout-submit">Logout</button>
+                  </form>
+                </li>';
+        } else {
+          // User is not logged in
+          echo '<li class="nav-item">
+                  <a class="nav-link active link-dark" href="/dwd/Assessment2PHP/signup.php">Get started</a>
+                </li>
+                <li class="nav-item">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#login-modal">
+                    Login
+                  </button>
+                </li>';
+        }
+        ?>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 <!-- Header: END -->
 
 <!-- Login Modal: START -->
@@ -85,34 +98,33 @@
 </div>
 <!-- Login Modal: END -->
 
-  <!-- Error Message from GET: START -->
-  <div class="container mt-3">
-    <?php 
-      // GRACEFUL LOGIN ERROR/SUCCESS MESSAGES
-      if(isset($_GET['loginerror'])){
-        // SPECIFIC ERRORS
-        if($_GET['loginerror'] == "emptyfields"){
-          $errorMsg = "Please fill in all fields";
-        }
-        else if($_GET['loginerror'] == "forbidden"){
-          $errorMsg = "Action not permitted";
-        }
-        else if($_GET['loginerror'] == "sqlerror"){
-          $errorMsg = "Internal server error - please try again later";
-        }
-        else if($_GET['loginerror'] == "nouser"){
-          $errorMsg = "The user does not exist";
-        }
-        else if($_GET['loginerror'] == "wrongpwd"){
-          $errorMsg = "Wrong password";
-        }
-        echo '<div class="alert alert-danger" role="alert">'.$errorMsg.'</div>';
-
-
-      } else if(isset($_GET['login']) && $_GET['login'] == "success"){
-
-        echo '<div class="alert alert-success" role="alert">You have successfully logged in!</div>';
-      }
-    ?>
-  </div>
-  <!-- Error Message from GET: END -->
+<!-- Error Message from GET: START -->
+<div class="container mt-3">
+  <?php
+  // GRACEFUL LOGIN ERROR/SUCCESS MESSAGES
+  if(isset($_GET['loginerror'])){
+    // SPECIFIC ERRORS
+    if($_GET['loginerror'] == "emptyfields"){
+      $errorMsg = "Please fill in all fields";
+    }
+    else if($_GET['loginerror'] == "forbidden"){
+      $errorMsg = "Action not permitted";
+    }
+    else if($_GET['loginerror'] == "sqlerror"){
+      $errorMsg = "Internal server error - please try again later";
+    }
+    else if($_GET['loginerror'] == "nouser"){
+      $errorMsg = "The user does not exist";
+    }
+    else if($_GET['loginerror'] == "wrongpwd"){
+      $errorMsg = "Wrong password";
+    }
+    echo '<div class="alert alert-danger" role="alert">'.$errorMsg.'</div>';
+  } else if(isset($_GET['login']) && $_GET['login'] == "success"){
+    echo '<div class="alert alert-info" role="alert">
+      Welcome <span style="text-transform: uppercase; font-weight: bold">' . $_SESSION['userUid'] .
+    '</span></div>';
+  }
+  ?>
+</div>
+<!-- Error Message from GET: END -->

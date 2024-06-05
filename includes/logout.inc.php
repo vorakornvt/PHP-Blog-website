@@ -1,11 +1,7 @@
-<?php 
-  session_start();
-
-  // access & remove all values in $_SESSION
-  session_unset();
-
-  // end the unique session (reset session id)
-  session_destroy();
-
-  header("Location: ../index.php");
+<?php
+session_start();
+session_unset(); // Unset all session variables
+session_destroy(); // Destroy the session
+header("Location: ../index.php?logout=success"); 
+exit();
 ?>
