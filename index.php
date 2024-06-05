@@ -19,15 +19,23 @@
 </main>
 
   
-  <!-- Hero -->
-  <div class="container-fluid hero">
+ <!-- Hero -->
+<div class="container-fluid hero">
   <div class="w-75 col container mt-5 mx-auto text-center mt-5">
     <h1 class="mb-5">Art Supplies for Everyone</h1>
     <h2 class="mb-5">Creative space Artists, hobbyists, students, and anyone who loves to express themselves creatively.</h2>
-    <a  class="mt-5  align-items-end" href="/dwd/Assessment2PHP/signup.php"><button type="button" class="btn btn-dark">Get started</button></a>
+    <?php
+    if(isset($_SESSION['userId'])){
+      // User is logged in
+      echo '<a class="mt-5 align-items-end" href="/dwd/Assessment2PHP/create_post.php"><button type="button" class="btn btn-dark">Create Post</button></a>';
+    } else {
+      // User is not logged in
+      echo '<a class="mt-5 align-items-end" href="/dwd/Assessment2PHP/signup.php"><button type="button" class="btn btn-dark">Get started</button></a>';
+    }
+    ?>
   </div>
-  </div>
-  <!-- Hero -->
+</div>
+<!-- Hero -->
 
 <!-- FOOTER.PHP -->
 <?php 
