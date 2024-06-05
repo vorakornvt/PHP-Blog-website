@@ -1,5 +1,9 @@
 <?php
-session_start(); // Start the session
+session_start();
+
+// Extract the first two letter
+
+$avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 0, 2)) : '';
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +14,23 @@ session_start(); // Start the session
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap 5.0 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <style>
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: solid black;
+      background-color: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin: auto;
+      font-family: "Prata", serif;
+    }
+  </style>
 
   <!-- External CSS -->
   <link rel="stylesheet" href="/dwd/Assessment2PHP/styles.css">
@@ -123,7 +144,8 @@ session_start(); // Start the session
   } else if(isset($_GET['login']) && $_GET['login'] == "success"){
     echo '<div class="alert alert-info" role="alert">
       Welcome <span style="text-transform: uppercase; font-weight: bold">' . $_SESSION['userUid'] .
-    '</span></div>';
+    '</span></div>
+    <div class="avatar">' . $avatar . '</div>';
   }
   ?>
 </div>
