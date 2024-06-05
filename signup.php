@@ -1,8 +1,8 @@
 <?php require './templates/header.php'; ?>
 
-<main class="container p-4 bg-light mt-3">
+<main class="container shadow p-3 mb-5 bg-body-tertiary rounded  p-4 bg-light mt-3">
     <form action="./includes/signup.inc.php" method="post">
-        <h2>Signup</h2>
+        <h2 class="text-center">Signup</h2>
         <?php 
 
         $errorMsg = '';

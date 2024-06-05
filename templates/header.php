@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-// Extract the first two letter
-
 $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 0, 2)) : '';
 ?>
 
@@ -17,10 +15,10 @@ $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 
 
   <style>
     .avatar {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      border: solid black;
+      border: solid 0.5px black;
       background-color: white;
       color: black;
       display: flex;
@@ -40,16 +38,15 @@ $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 
 
 <!-- Header: START -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
-  <div class="container-fluid w-75">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="./img/Asset5.png" alt="ArtifyLOGO" width="130">
+      <img src="./img/Asset4.png" alt="ArtifyLOGO" width="130">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="nav">
+      <ul class="nav justify-content-center">
         <li class="nav-item">
           <a class="nav-link active link-dark" href="index.php">Home</a>
         </li>
@@ -57,18 +54,11 @@ $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 
           <a class="nav-link link-dark" href="posts.php">Posts</a>
         </li>
         <?php
-        if(isset($_SESSION['userId'])){
-          // User is logged in
+        if (isset($_SESSION['userId'])) {
           echo '<li class="nav-item">
-                  <a class="nav-link active link-dark" href="/dwd/Assessment2PHP/create_post.php">Create Post</a>
-                </li>
-                <li class="nav-item">
-                  <form action="/dwd/Assessment2PHP/includes/logout.inc.php" method="POST">
-                    <button type="submit" class="btn btn-outline-dark" name="logout-submit">Logout</button>
-                  </form>
+                  <a class="nav-link active link-dark" href="/dwd/Assessment2PHP/createpost.php">Create Post</a>
                 </li>';
         } else {
-          // User is not logged in
           echo '<li class="nav-item">
                   <a class="nav-link active link-dark" href="/dwd/Assessment2PHP/signup.php">Get started</a>
                 </li>
@@ -82,6 +72,22 @@ $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 
         ?>
       </ul>
     </div>
+    <?php
+    if (isset($_SESSION['userId'])) {
+      echo '<div class="dropdown ms-3">
+              <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="avatar">' . $avatar . '</div></button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                <li class="dropdown-item-text">' . $_SESSION['userUid'] . '</li>
+                <li><hr class="dropdown-divider"></li>
+                  <form action="/dwd/Assessment2PHP/includes/logout.inc.php" method="POST" class="d-inline">
+                    <button type="submit" class="dropdown-item" name="logout-submit">Logout</button>
+                  </form>
+                </li>
+              </ul>
+            </div>';
+    }
+    ?>
   </div>
 </nav>
 <!-- Header: END -->
@@ -94,7 +100,6 @@ $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 
         <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-
       <!-- login.inc.php - Will process the data from this form-->
       <div class="modal-body">
         <!-- LOGIN FORM: START -->
@@ -106,10 +111,10 @@ $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 
           </div>
           <div class="mb-3">
             <label for="password" class="col-form-label">Password:</label>
-            <input type="password" class="form-control" id="password" name="pwd" placeholder="Password"></input>
+            <input type="password" class="form-control" id="password" name="pwd" placeholder="Password">
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary w-100" name="login-submit">Login</button>
+            <button type="submit" class="btn btn-dark w-100" name="login-submit">Login</button>
           </div>
         </form>
         <!-- LOGIN FORM: END -->
@@ -119,34 +124,30 @@ $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 
 </div>
 <!-- Login Modal: END -->
 
+
 <!-- Error Message from GET: START -->
 <div class="container mt-3">
-  <?php
-  // GRACEFUL LOGIN ERROR/SUCCESS MESSAGES
-  if(isset($_GET['loginerror'])){
-    // SPECIFIC ERRORS
-    if($_GET['loginerror'] == "emptyfields"){
-      $errorMsg = "Please fill in all fields";
-    }
-    else if($_GET['loginerror'] == "forbidden"){
-      $errorMsg = "Action not permitted";
-    }
-    else if($_GET['loginerror'] == "sqlerror"){
-      $errorMsg = "Internal server error - please try again later";
-    }
-    else if($_GET['loginerror'] == "nouser"){
-      $errorMsg = "The user does not exist";
-    }
-    else if($_GET['loginerror'] == "wrongpwd"){
-      $errorMsg = "Wrong password";
-    }
-    echo '<div class="alert alert-danger" role="alert">'.$errorMsg.'</div>';
-  } else if(isset($_GET['login']) && $_GET['login'] == "success"){
-    echo '<div class="alert alert-info" role="alert">
-      Welcome <span style="text-transform: uppercase; font-weight: bold">' . $_SESSION['userUid'] .
-    '</span></div>
-    <div class="avatar">' . $avatar . '</div>';
+<?php
+// GRACEFUL LOGIN ERROR/SUCCESS MESSAGES
+if(isset($_GET['loginerror'])){
+  // SPECIFIC ERRORS
+  if($_GET['loginerror'] == "emptyfields"){
+    $errorMsg = "Please fill in all fields";
   }
-  ?>
+  else if($_GET['loginerror'] == "forbidden"){
+    $errorMsg = "Action not permitted";
+  }
+  else if($_GET['loginerror'] == "sqlerror"){
+    $errorMsg = "Internal server error - please try again later";
+  }
+  else if($_GET['loginerror'] == "nouser"){
+    $errorMsg = "The user does not exist";
+  }
+  else if($_GET['loginerror'] == "wrongpwd"){
+    $errorMsg = "Wrong password";
+  }
+  echo '<div class="alert text-center alert-secondary" role="alert">'.$errorMsg.'</div>';
+} 
+?>
 </div>
 <!-- Error Message from GET: END -->

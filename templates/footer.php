@@ -1,6 +1,6 @@
 
 
-<div class="footer border-top w-100" style="height: 60px;">
+<div class="footer border-top w-100 h-100">
 <ul class="nav mx-auto justify-content-center ">
     <li class="nav-item"><a class="nav-link link-dark" href="#help">Help</a></li>
     <li class="nav-item"><a class="nav-link link-dark" href="#status">Status</a></li>
