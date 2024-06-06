@@ -11,28 +11,34 @@
 
 <!-- Title -->
 <div class="mb-3">
-  <label for="title" class="form-label">Title</label>
-  <input type="text" class="form-control" name="title" placeholder="Enter review title">
-</div>
+      <label for="title" class="form-label">Artwork Name</label>
+      <input type="text" class="form-control" name="title" placeholder="Enter artwork name" required>
+    </div>
 
-<!-- Image URL -->
-<div class="mb-3">
-  <label for="imageurl" class="form-label">Artwork Image URL</label>
-  <input type="text" class="form-control" name="imageurl" placeholder="Paste the URL of the artwork image">
-</div>
+    <!-- Image URL -->
+    <div class="mb-3">
+      <label for="imageurl" class="form-label">Artwork Image URL</label>
+      <input type="text" class="form-control" name="imageurl" placeholder="Paste the URL of the artwork image" required>
+    </div>
 
-<!-- Artwork Description -->
-<div class="mb-3">
-  <label for="comment" class="form-label">Inspiration form Artwork</label>
-  <textarea class="form-control" name="comment" rows="3" placeholder="Describe what you got form this artworks or your Interpretation"></textarea>
-</div>
+    <!-- Artwork Description -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Inspiration from Artwork</label>
+      <textarea class="form-control" name="description" placeholder="Describe what you got from this artwork or your interpretation" required></textarea>
+    </div>
 
+    <!-- Artist Name -->
+    <div class="mb-3">
+      <label for="artistName" class="form-label">Artist Name</label>
+      <input type="text" class="form-control" name="artistName" placeholder="Enter artist name" required>
+    </div>
 
-<!-- Artist Name -->
-<div class="mb-3">
-  <label for="artistname" class="form-label">Artist Name</label>
-  <input type="text" class="form-control" name="artistname" placeholder="Enter artist name">
-</div>
+    <!-- Years -->
+    <div class="mb-3">
+      <label for="years" class="form-label">Years</label>
+      <input type="number" class="form-control" name="years" placeholder="Enter the years" required>
+    </div>
+
 
 <!-- Submit Button -->
 <button type="submit" name="post-submit" class="btn btn-dark w-100">Post Your Artwork</button>

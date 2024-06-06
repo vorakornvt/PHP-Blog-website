@@ -2,53 +2,61 @@
 require "./templates/header.php";
 ?>
 
-<main class="container p-4 bg-light mt-3">
+<main class="container p-4  mt-3">
   <?php
-  // 1. QUERY DATABASE for ALL POSTS
+ 
   require './includes/connect.inc.php';
 
-  // 2. Declare SQL command to retrieve all rows from the artReview table
-  $sql = "SELECT id, title, imageurl, comment, websiteurl, websitetitle FROM artReview";
+ 
+  $sql = "SELECT id, title, imageurl, description, artistName, idUsers, years  FROM artReview";
 
-  // 3. Execute the query and store the result in a variable
+ 
   $result = $conn->query($sql);
 
-  // 4. Error handling
+  
   if (!$result) {
     echo '<div class="alert alert-danger" role="alert">Error: ' . $conn->error . '</div>';
   } else {
-    // Display posts if query is successful
+    
     if ($result->num_rows > 0) {
-      // Loop through each row and display the data
+      
       while ($row = $result->fetch_assoc()) {
         echo '
-        <div class="card border-0 mt-3" id="' . $row['id'] . '">
-          <img src="' . $row['imageurl'] . '" class="card-img-top post-image" alt="' . $row['title'] . '">
-          <div class="card-body">
-            <h5 class="card-title">' . $row['title'] . '</h5>
-            <p class="card-text">' . $row['comment'] . '</p>
-            <a href="' . $row['websiteurl'] . '" class="btn btn-primary w-100" target="_blank">' . $row['websitetitle'] . '</a>';
+        <div class="container text-start w-75 shadow p-3 mb-5 bg-body-tertiary rounded " id="' . $row['id'] . '">
+          <div class="row align-items-start g-0">
+            <div class="col-auto">
+              <img src="' . $row['imageurl'] . '" class="img-fluid rounded-start" style="max-width: 300px;" alt="' . $row['title'] . '">
+            </div>
+            <div class="col ms-3 ">
+              <div class="card-body">
+                <h4 class="card-title mb-2">' . $row['title'] . '</h4>
+                <p class="card-text mb-2"> Description :  ' . $row['description'] . '</p>
+                <p class="card-text mb-2"> Artist :' . $row['artistName'] . '</p>
+                <p class="card-text border-bottom mb-5 pb-2"> Year : ' . $row['years'] . '</p>'
+                ;
 
-        // Check if user is logged in and display edit/delete buttons
-        if (isset($_SESSION['userId'])) {
+      
+        if (isset($_SESSION['userId']) && $_SESSION['userId'] == $row['idUsers']) {
           echo '
-          <div class="admin-btn">
-            <a href="editpost.php?id=' . $row['id'] . '" class="btn btn-secondary mt-2">Edit</a>
-            <a href="includes/deletepost.inc.php?id=' . $row['id'] . '" class="btn btn-danger mt-2">Delete</a>
+          <div class="admin-btn text-center">
+            <a href="editpost.php?id=' . $row['id'] . '" class="btn btn-outline-dark mt-2">Edit</a>
+            <a href="includes/deletepost.inc.php?id=' . $row['id'] . '" class="btn btn-outline-dark mt-2">Delete</a>
           </div>';
         }
 
         echo '
+              </div>
+            </div>
           </div>
         </div>';
       }
+    
     } else {
-      // No results found
-      echo "0 results";
+      echo "No results found";
     }
   }
 
-  // Close database connection
+ 
   $conn->close();
   ?>
 </main>
