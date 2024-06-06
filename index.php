@@ -13,7 +13,7 @@
   <?php
   if(isset($_SESSION['userId'])){
     // logged in
-    echo '<div class="shadow p-3 mb-5 bg-body-tertiary rounded text-center" role="alert"> Welcome to your creative space ' . $_SESSION['userUid'] . '</div>';
+    echo '<div class="shadow p-3 mb-5 bg-body-tertiary rounded text-center" role="alert"> Welcome to your creative space, ' . $_SESSION['userUid'] . '</div>';
   }else {
     // logged out
     echo '<div class="shadow p-3 mb-5 bg-body-tertiary rounded text-center" role="alert">Please Login to see our creative space</div>';

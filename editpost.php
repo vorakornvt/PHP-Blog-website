@@ -1,49 +1,66 @@
-<!-- HEADER.PHP -->
-<?php 
-  require "templates/header.php"
+<?php
+require "templates/header.php";
+
+
+// Fetch the post details from the database to pre-fill the form
+if (isset($_GET['id'])) {
+    require 'includes/connect.inc.php';
+    $postId = intval($_GET['id']);
+
+    $sql = "SELECT * FROM artReview WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $postId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $post = $result->fetch_assoc();
+
+    if (!$post) {
+        header("Location: posts.php?error=postnotfound");
+        exit();
+    }
+} else {
+    header("Location: posts.php");
+    exit();
+}
 ?>
+<main class="container shadow p-3 mb-5 bg-body-tertiary rounded p-4 bg-light mt-3">
+  <form action="includes/editpost.inc.php?id=<?php echo $postId; ?>" method="POST">
+    <h2 class="text-center">Edit Your Inspiration</h2>
 
-  <main class="container p-4 bg-light mt-3">
-    <!-- editpost.inc.php - Will process the data from this form-->
-    <form action="includes/editpost.inc.php" method="POST">
-      <h2>Edit Post</h2>
+    <!-- Title -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Artwork Name</label>
+      <input type="text" class="form-control" name="title" value="<?php echo ($post['title']); ?>" required>
+    </div>
 
-      <!-- 1. TITLE -->
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" name="title" placeholder="Title" value="title">
-      </div>  
+    <!-- Image URL -->
+    <div class="mb-3">
+      <label for="imageurl" class="form-label">Artwork Image URL</label>
+      <input type="text" class="form-control" name="imageurl" value="<?php echo ($post['imageurl']); ?>" required>
+    </div>
 
-      <!-- 2. IMAGE URL -->
-      <div class="mb-3">
-        <label for="imageurl" class="form-label">Image URL</label>
-        <input type="text" class="form-control" name="imageurl" placeholder="Image URL" value="imageurl" >
-      </div>
+    <!-- Artwork Description -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Inspiration from Artwork</label>
+      <textarea class="form-control" name="description" required><?php echo ($post['description']); ?></textarea>
+    </div>
 
-      <!-- 3. COMMENT SECTION -->
-      <div class="mb-3">
-        <label for="comment" class="form-label">Comment</label>
-        <textarea class="form-control" name="comment" rows="3" placeholder="Comment">comment</textarea>
-      </div>
+    <!-- Artist Name -->
+    <div class="mb-3">
+      <label for="artistName" class="form-label">Artist Name</label>
+      <input type="text" class="form-control" name="artistName" value="<?php echo ($post['artistName']); ?>" required>
+    </div>
 
-      <!-- 4. WEBSITE URL -->
-      <div class="mb-3">
-        <label for="websiteurl" class="form-label">Website URL</label>
-        <input type="text" class="form-control" name="websiteurl" placeholder="Website URL" value="websiteurl" >
-      </div>
+    <!-- Years -->
+    <div class="mb-3">
+      <label for="years" class="form-label">Years</label>
+      <input type="number" class="form-control" name="years" value="<?php echo ($post['years']); ?>" required>
+    </div>
 
-      <!-- 5. WEBSITE TITLE -->
-      <div class="mb-3">
-        <label for="websitetitle" class="form-label">Website Title</label>
-        <input type="text" class="form-control" name="websitetitle" placeholder="Website Title" value="websitetitle" >
-      </div>
-
-      <!-- 6. SUBMIT BUTTON -->
-      <button type="submit" name="edit-submit" class="btn btn-primary w-100">Edit</button>
-    </form>
-  </main>
-
-<!-- FOOTER.PHP -->
-<?php 
-  require "templates/footer.php"
+    <!-- Submit Button -->
+    <button type="submit" name="edit-submit" class="btn btn-dark w-100">Update Your Artwork</button>
+  </form>
+</main>
+<?php
+require "templates/footer.php";
 ?>
