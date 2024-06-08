@@ -54,9 +54,12 @@ $avatar = isset($_SESSION['userUid']) ? strtoupper(substr($_SESSION['userUid'], 
           <a class="nav-link link-dark" href="posts.php">Posts</a>
         </li>
         <?php
-        if (isset($_SESSION['userId'])) {
+        if (isset($_SESSION['userId']))  {
           echo '<li class="nav-item">
                   <a class="nav-link active link-dark" href="/dwd/Assessment2PHP/createpost.php">Create Post</a>
+                </li>';
+          echo '<li class="nav-item">
+                  <a class="nav-link active link-dark" href="/dwd/Assessment2PHP/upload.php">Upload Your Artwork</a>
                 </li>';
         } else {
           echo '<li class="nav-item">
