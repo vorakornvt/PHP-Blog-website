@@ -7,7 +7,8 @@
 
   
  <!-- Hero -->
-<div class="container-fluid mb-3" style="height: 550px;">
+ <main class="container-fluid mb-3" style="height: 660px; background: url('./img/Untitled-1.jpg') no-repeat center center/ cover;">
+
 
 <main class="container custom-container mt-3">
   <?php
@@ -24,6 +25,7 @@
   <div class="w-75  container mt-5 mx-auto text-center mt-5">
     <h1 class="mb-5">Art Supplies for Everyone</h1>
     <h2 class="mb-5">Creative space Artists, hobbyists, students, and anyone who loves to express themselves creatively.</h2>
+    <div style="height: 160px;"></div>
     <?php
     if(isset($_SESSION['userId'])){
       // User is logged in
