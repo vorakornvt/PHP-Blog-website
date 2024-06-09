@@ -23,7 +23,7 @@ if (isset($_SESSION['userId']) && isset($_GET['id'])) {
         exit();
     }
 
-    // 5. Delete Post from DB (Prepared Statements)
+    // 5. Delete Post from DB 
     $sql = "DELETE FROM artReview WHERE id = ?";
     $stmt = $conn->prepare($sql);
 
@@ -33,21 +33,21 @@ if (isset($_SESSION['userId']) && isset($_GET['id'])) {
         exit();
     }
 
-    // 6. Bind parameters and execute the statement
+   
     $stmt->bind_param("i", $postId);
     $stmt->execute();
 
     if ($stmt->error) {
-        // ERROR: Unknown server error on saving to DB
+        // ERROR
         header("Location: ../posts.php?error=servererror");
         exit();
     }
 
-    // 7. SUCCESS: Post is deleted from "artReview" table - redirect with success message
+    // 7. SUCCESS
     header("Location: ../posts.php?delete=success");
     exit();
 
-// 2. Restrict Access to Script Page
+
 } else {
     header("Location: ../signup.php");
     exit();

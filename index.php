@@ -3,9 +3,6 @@
   require "./templates/header.php"
 ?>
 
-
-
-  
  <!-- Hero -->
  <main class="container-fluid mb-3" style="height: 750px; background: url('./img/Untitled-1.jpg') no-repeat center center/ cover;">
 

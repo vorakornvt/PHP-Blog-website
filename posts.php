@@ -4,10 +4,10 @@ require "./templates/header.php";
 
 <main class="container p-4 mt-3">
   <?php
-  // Include the database connection
+  // the database connection
   require './includes/connect.inc.php';
 
-  // Query to fetch data from the artReview table
+
   $sql = "SELECT id, title, imageurl, description, artistName, idUsers, years FROM artReview";
   $result = $conn->query($sql);
 
@@ -42,11 +42,11 @@ require "./templates/header.php";
   if (!$result) {
       echo '<div class="alert alert-danger" role="alert">Error: ' . $conn->error . '</div>';
   } else {
-      // Check if there are any results
+     
       if ($result->num_rows > 0) {
           // Check if the user is logged in
           if (isset($_SESSION['userId'])) {
-              // Loop through and display each result with full details for logged-in users
+              // Loop through and display each result 
               while ($row = $result->fetch_assoc()) {
                   echo '
                   <div class="container text-start w-75 shadow p-3 mb-5 bg-body-tertiary rounded" id="' . $row['id'] . '">
@@ -97,7 +97,7 @@ require "./templates/header.php";
       }
   }
 
-  // Close the database connection
+  // Close the database
   $conn->close();
   ?>
 </main>

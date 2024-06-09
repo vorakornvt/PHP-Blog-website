@@ -4,7 +4,8 @@
 ?>
 
   <main class="container shadow p-3 mb-5 bg-body-tertiary rounded  p-4  mt-3">
-    <!-- createpost.inc.php - Will process the data from this form-->
+  
+
     <form action="includes/createpost.inc.php" method="POST">
       <h2 class="text-center">Share Your Inspiration</h2>
 
@@ -40,7 +41,6 @@
     </div>
 
 
-<!-- Submit Button -->
 <button type="submit" name="post-submit" class="btn btn-dark w-100">Post Your Artwork</button>
   </main>
 

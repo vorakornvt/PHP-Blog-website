@@ -2,7 +2,6 @@
 require "templates/header.php";
 
 
-// Fetch the post details from the database to pre-fill the form
 if (isset($_GET['id'])) {
     require 'includes/connect.inc.php';
     $postId = intval($_GET['id']);

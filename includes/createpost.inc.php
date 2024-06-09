@@ -38,18 +38,18 @@
       exit();
     }
 
-    // (iii) Bind parameters and execute the statement
+    
     $statement->bind_param("ssssii", $title, $imageURL, $description, $artistName, $years, $userId);
     $statement->execute();
 
-    // (iv) Check for errors
+
     if ($statement->error) {
      
       header("Location: ../createpost.php?error=servererror");
       exit();
     }
 
-    // (v) Post is saved to "artReview" table - redirect with success message
+
     header("Location: ../posts.php?post=success"); 
     exit();
 
