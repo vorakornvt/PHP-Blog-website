@@ -4,7 +4,7 @@
 ?>
 
  <!-- Hero -->
- <main class="container-fluid mb-3" style="height: 750px; background: url('./img/Untitled-1.jpg') no-repeat center center/ cover;">
+ <main class="container-fluid mb-3" style="height: 700px; background: url('./img/Untitled-1.jpg') no-repeat center center/ cover;">
 
 
 <main class="container custom-container mt-3">
@@ -33,7 +33,7 @@
       echo '<a class="mt-5 align-items-end" href="/dwd/Assessment2PHP/signup.php"><button type="button" class="btn btn-dark">Get started</button></a>';
     }
     ?>
-     <div style="height: 120px;"></div>
+     <div style="height: 10px;"></div>
   </div>
 </div>
 <!-- Hero -->
