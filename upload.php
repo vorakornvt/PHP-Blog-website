@@ -73,13 +73,13 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-<main class="container p-4 mt-3">
+<main class="container p-4 mt-3" style="height: 500px; background: url('./img/Untitled-1.jpg') no-repeat center center/ cover;">
   <div>
     <div class="container mt-5">
       <div class="text-center mb-4">
+      <img src="./img/Asset5.png" alt="ArtifyLOGO" width="90">
         <h2 class="display-3 mb-2">
        Amplify Art
-          <img src="./img/Asset5.png" alt="ArtifyLOGO" width="130">
         </h2>
         <p class="lead">Select Artwork to upload:</p>
       </div>
