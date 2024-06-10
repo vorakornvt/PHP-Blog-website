@@ -4,7 +4,7 @@
 ?>
 
  <!-- Hero -->
- <main class="container-fluid mb-3" style="height: 700px; background: url('./img/Untitled-1.jpg') no-repeat center center/ cover;">
+ <main class="container-fluid mb-3" style="height: 700px; background: url('./img/Untitled-1.jpg') no-repeat center center/ cover;" >
 
 
 <main class="container custom-container mt-3">
