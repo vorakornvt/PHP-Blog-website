@@ -65,7 +65,8 @@ if(isset($_POST['submit'])){
         // (a) ERROR STATE
         $uploadMessage = "<p>Sorry, your file was not uploaded.</p>" . "<strong>Error: </strong>" . $uploadMessageError;
     } else {
-        // (b) SUCCESS STATE: If all ok (remains value of 1) - try to upload file to permanent location
+        // (b) SUCCESS STATE
+        
         if(move_uploaded_file($fileTempName, $directory . "/" . $fileName)){
             $uploadMessage = "<p>File Uploaded Successfully. " . 'Preview it: <a href="' . $fileDownloadUrl . '" target="_blank">' . $fileDownloadUrl . '</a></p>';
         }
